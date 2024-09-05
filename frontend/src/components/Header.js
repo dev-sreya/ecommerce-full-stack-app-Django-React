@@ -1,12 +1,14 @@
 import React from 'react'
 import { Navbar,Nav,Container, Row } from 'react-bootstrap'
 
+
+
 function Header() {
   return (
       <header>   
        <Navbar expand="lg" bg="dark" variant="dark"className="bg-dark" collapseOnSelect>
       <Container>
-        <Navbar.Brand href="/">ProShop</Navbar.Brand>
+        <Navbar.Brand href="/">ELIvate</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
