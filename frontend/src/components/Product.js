@@ -3,6 +3,7 @@ import { Card  } from 'react-bootstrap';
 import Rating from './Rating';
 import { Link } from 'react-router-dom';
 
+
 function Product({product}) {
   return (
     <Card className="py-3 my-3 rounded">
