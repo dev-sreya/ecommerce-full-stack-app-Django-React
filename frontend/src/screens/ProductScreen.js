@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductDetails } from "../reducers/productsSlice";
 import { Button, Card, Col, Image, ListGroup, Row, Form } from "react-bootstrap";
@@ -16,10 +16,16 @@ function ProductScreen() {
   const [ qty, setQty] = useState(1)
   const dispatch = useDispatch();
   const { id } = useParams();
+
+  const navigate = useNavigate();
  
   useEffect(() => {
     dispatch(getProductDetails(id));
   }, [dispatch, id]);
+
+  const addToCartHandler = () =>(
+    navigate(`/cart/${id}?qty=${qty}`)
+  )
   return (
     <div>
       {isLoading && <Loader />}
@@ -96,6 +102,7 @@ function ProductScreen() {
  
               <ListGroup.Item>
                 <Button
+                  onClick={addToCartHandler}
                   className="btn-block"
                   type="button"
                   disabled={product.countInStock === 0}
