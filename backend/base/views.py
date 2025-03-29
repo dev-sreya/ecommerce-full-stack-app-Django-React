@@ -8,8 +8,25 @@ from .models import Product
  
 from .serializers import ProductSerializer
 
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+from rest_framework_simplejwt.views import TokenObtainPairView
+
 # def getRoutes(request):
 #     return JsonResponse({'message': 'Hello'})
+
+
+class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
+    @classmethod
+    def validate(self, user):
+        data = super().validate(user)
+
+        # Add custom claims
+        data['username'] = self.user.username
+        data['email'] = self.user.email
+        # ...
+
+        return data
+
 
 
 @api_view(['GET'])
