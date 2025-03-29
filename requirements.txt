@@ -1,0 +1,12 @@
+# Django framework (adjust version if needed)
+Django>=3.2
+
+# Image processing library
+Pillow
+
+# CORS support for Django
+django-cors-headers
+
+# Simple JWT for Django REST framework
+djangorestframework-simplejwt
+
