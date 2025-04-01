@@ -1,4 +1,4 @@
-# ecommerce-full-stack-app-Django-React
+# Ecommerce-full-stack-app-Django-React
 
 ![proshop_django_demo (1)](https://github.com/user-attachments/assets/e47ca9a8-2a62-44ca-9b90-77d1ceeb9011)
  
