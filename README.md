@@ -20,13 +20,22 @@
 # Download & Setup Instructions
 
 1. Clone project: git clone: https://github.com/dev-sreya/Ecommerce-Full-Stack-App-using-Django-React-js.git
-2. cd proshop_django
+2. cd ecommerce-full-stack-app-Django-React
 3. Create virtual environment: virtualenv myenv
 4. myenv\scripts\activate
 5. pip install -r requirements.txt
-6. python manage.py runserver
+6. cd backend
+7. python manage.py runserver
 
 # Install react modules
+
+This project has been created using VITE + REACT
+
 1. cd frontend
 2. npm install
+3. npm  install react-bootstrap
+4. npm intall axios
+5. npm install react-router-dom web-vitals
+6. npm install redux react-redux redux-thunk redux-devtools-extensions
+7. npm install @reduxjs/toolkit 
 
