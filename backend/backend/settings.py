@@ -52,7 +52,7 @@ REST_FRAMEWORK = {
 from datetime import timedelta
 
 SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),
+    "ACCESS_TOKEN_LIFETIME": timedelta(days=30),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
     "ROTATE_REFRESH_TOKENS": False,
     "BLACKLIST_AFTER_ROTATION": False,
@@ -80,7 +80,7 @@ SIMPLE_JWT = {
     "JTI_CLAIM": "jti",
 
     "SLIDING_TOKEN_REFRESH_EXP_CLAIM": "refresh_exp",
-    "SLIDING_TOKEN_LIFETIME": timedelta(days=30),
+    "SLIDING_TOKEN_LIFETIME": timedelta(minutes=5),
     "SLIDING_TOKEN_REFRESH_LIFETIME": timedelta(days=1),
 
     "TOKEN_OBTAIN_SERIALIZER": "rest_framework_simplejwt.serializers.TokenObtainPairSerializer",
@@ -92,11 +92,10 @@ SIMPLE_JWT = {
 }
 
 
-SIMPLE_JWT = {
-  # It will work instead of the default serializer(TokenObtainPairSerializer).
-  "TOKEN_OBTAIN_SERIALIZER": "my_app.serializers.MyTokenObtainPairSerializer",
-  # ...
-}
+# SIMPLE_JWT = {
+#   # It will work instead of the default serializer(TokenObtainPairSerializer).
+#   "TOKEN_OBTAIN_SERIALIZER": "backend.serializers.MyTokenObtainPairSerializer",
+# }
 
 
 MIDDLEWARE = [
