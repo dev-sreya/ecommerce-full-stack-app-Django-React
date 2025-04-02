@@ -6,6 +6,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from .products import products
 from .models import Product
+from django.contrib.auth.models import User
  
 from .serializers import ProductSerializer, UserSerializer, UserSerializerWithToken
 
@@ -51,6 +52,12 @@ def getUserProfile(request):
     serializer = UserSerializer(user, many = False)
     return Response(serializer.data)
 
+@api_view(['GET'])
+@permission_classes([IsAdminUser])
+def getUsers(request):
+    users = User.objects.all()
+    serializer = UserSerializer(users, many = True)
+    return Response(serializer.data)
 
 
 
@@ -59,6 +66,7 @@ def getProducts(request):
     products = Product.objects.all()
     serializer = ProductSerializer(products, many = True)
     return Response(serializer.data)
+
 
 @api_view(['GET'])
 def getProduct(request,pk):
@@ -74,3 +82,4 @@ def getProduct(request,pk):
     except Product.DoesNotExist:
         return Response({'detail': 'Product not found.'}, status=status.HTTP_404_NOT_FOUND)
         
+
