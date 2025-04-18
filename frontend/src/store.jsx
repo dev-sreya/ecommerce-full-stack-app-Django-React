@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import {productListReducer,productDetailsReducer} from "./reducers/productReducers";
 import {cartReducer} from "./reducers/cartReducerss";
-import {userLoginReducer} from './reducers/userReducers'
+import {userLoginReducer, userRegisterReducer} from './reducers/userReducers'
  
 
 const cartItemsFromStorage = localStorage.getItem('cartItems') ?
@@ -25,6 +25,7 @@ export const store  = configureStore({
     productDetails: productDetailsReducer,
     cart : cartReducer,
     userLogin : userLoginReducer,
+    userRegister: userRegisterReducer,
   },
   preloadedState: initialState,
 });
