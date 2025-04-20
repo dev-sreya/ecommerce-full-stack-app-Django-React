@@ -23,18 +23,16 @@ from django.urls import path, include
 from django.conf import settings 
 from django.conf.urls.static import static
 
+from django.views.generic import TemplateView
 
-import base.urls.product_urls as product_urls
-import base.urls.order_urls as order_urls
-import base.urls.user_urls as user_urls
-#sys.path.append(os.path.join(os.path.dirname(os.path.dirname(__file__)),'base'))
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-   path('api/products/', include(product_urls.product_urrls)),
-    path('api/users/', include(user_urls.user_urrls)),
-    path('api/ordered/', include(order_urls.order_urrls)),
-    #path('api/', include('base.urls')),
-    #path('api-auth/', include('rest_framework.urls'))
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('', TemplateView.as_view(template_name='index.html')),
+    path('api/products/', include('base.urls.product_urls')),
+    path('api/users/', include('base.urls.user_urls')),
+    path('api/orders/', include('base.urls.order_urls')),
+]
 
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -37,9 +37,7 @@ function CheckoutSteps({ step1, step2, step3, step4 }) {
 
             <Nav.Item>
                 {step4 ? (
-                    <LinkContainer to='/placeorder'>
                         <Nav.Link as={Link} to='/placeorder'>Place Order</Nav.Link>
-                    </LinkContainer>
                 ) : (
                         <Nav.Link disabled>Place Order</Nav.Link>
                     )}
