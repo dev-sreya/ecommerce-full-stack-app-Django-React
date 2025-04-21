@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
 import { listProducts } from "../actions/productActions";
 import { Row, Col } from "react-bootstrap";
 import Product from "../components/Product";
@@ -8,21 +9,25 @@ import Message from "../components/Message";
 //import products from "../products";
  
 function HomeScreen() {
-  const { products, isLoading, isError, error } = useSelector(
-    (state) => state.products
-  );
+  // const { products, isLoading, isError, error } = useSelector(
+  //   (state) => state.products
+  // );
   const dispatch = useDispatch();
+  const location = useLocation();
+  const keyword = location.search;
+  const productList = useSelector(state => state.productList)
+    const { error, loading, products, page, pages } = productList
  
   useEffect(() => {
-    dispatch(listProducts())
+    dispatch(listProducts(keyword))
  
-  }, [])
+  },  [dispatch, keyword]);
 
   return (
     <div>
       <h1>Latest products</h1>
-      {isLoading && <Loader />}
-      {isError && <Message varient="danger">{error}</Message>}
+      {loading && <Loader />}
+      {error && <Message varient="danger">{error}</Message>}
  
       <Row>
         {products.map((product) => (
