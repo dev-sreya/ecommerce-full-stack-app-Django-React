@@ -1,10 +1,16 @@
 import { configureStore } from "@reduxjs/toolkit";
 import {productListReducer,productDetailsReducer} from "./reducers/productReducers";
 import {cartReducer} from "./reducers/cartReducerss";
-import {userLoginReducer, userRegisterReducer, userDetailsReducer, userUpdateProfileReducer} from './reducers/userReducers'
+import {
+  userLoginReducer,
+  userRegisterReducer,
+  userDetailsReducer,
+  userUpdateProfileReducer} from './reducers/userReducers'
 import {
   orderCreateReducer,
   orderDetailsReducer,
+  orderPayReducer,
+  orderListMyReducer
 } from'./reducers/orderReducers'
 
  
@@ -40,6 +46,8 @@ export const store  = configureStore({
     
     orderCreate: orderCreateReducer,
     orderDetails: orderDetailsReducer,
+    orderPay: orderPayReducer,
+    orderListMy: orderListMyReducer,
   },
   preloadedState: initialState,
 });
