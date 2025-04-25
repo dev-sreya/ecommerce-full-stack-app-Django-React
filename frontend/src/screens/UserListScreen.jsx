@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Nav,Table, Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Loader from '../components/Loader'
@@ -71,7 +71,7 @@ function UserListScreen() {
                                             )}</td>
 
                                         <td>
-                                            <Nav.Link to={`/admin/user/${user._id}/edit`}>
+                                            <Nav.Link as={Link} to={`/admin/user/${user._id}/edit`}>
                                                 <Button variant='light' className='btn-sm'>
                                                     <i className='fas fa-edit'></i>
                                                 </Button>
