@@ -25,17 +25,27 @@ function PlaceOrderScreen() {
     }
   }, [dispatch, orderId, order, successPay])
 
-  if (!loading && !error) {
-    const itemsPrice = order?.orderItems.reduce((acc, item) => acc + item.price * item.qty, 0).toFixed(2)
-    order.itemsPrice = itemsPrice
-  }
+  // if (!loading && !error) {
+  //   const itemsPrice = order?.orderItems.reduce((acc, item) => acc + item.price * item.qty, 0).toFixed(2)
+  //   order.itemsPrice = itemsPrice
+  // }
+
+  const calculateItemsPrice = (currentOrder) => {
+    if (currentOrder?.orderItems) {
+      return currentOrder.orderItems.reduce(
+        (acc, item) => acc + (item?.price || 0) * (item?.qty || 0),
+        0
+      ).toFixed(2);
+    }
+    return '0.00'; // Default value if orderItems is missing
+  };
 
   const successPaymentHandler = (paymentResult) => {
     dispatch(payOrder(orderId, paymentResult))
   }
 
   const initialOptions = {
-    'client-id': 'ATdUVgX6bsKBVu8F_lEsmPXC2O1BZVJEvGu1INrT997u_OElOnNmSBtExc3HXA5sXCdfQQhPtX4_7_rQ',
+    'client-id': 'AQ1zr3uNdiAmp-X9yuzhpPZRwgFfyYLxqnuD3Zc-a-CFnaMzPZn_8Il9rBJgnZEJ1CifmejGspqCV0lU',
     currency: 'USD',
     intent: 'capture',
   }
@@ -118,7 +128,7 @@ function PlaceOrderScreen() {
               <ListGroup.Item>
                 <Row>
                   <Col>Items:</Col>
-                  <Col>${order.itemsPrice}</Col>
+                  <Col>${calculateItemsPrice(order)}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
