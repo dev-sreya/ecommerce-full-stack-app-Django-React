@@ -1,4 +1,4 @@
-# Ecommerce-full-stack-app-Django-React
+## Ecommerce-full-stack-app-Django-React
 
 <img width="610" alt="Image" src="https://github.com/user-attachments/assets/d8cbfb85-cccf-47db-bd2c-0bd22fc4f8ea" />
 
