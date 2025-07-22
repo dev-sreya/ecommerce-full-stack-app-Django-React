@@ -1,4 +1,4 @@
-## Headless Ecommerce-full-stack-app-Django-React
+## Ecommerce-full-stack-app-Django-React
 
 A scalable full-stack headless e-commerce platform built with Django REST Framework as the backend and React as the frontend. Features include product catalog, cart, checkout, user authentication, and admin dashboard. Backend and frontend are decoupled for flexible deployment and API-first architecture.
 
